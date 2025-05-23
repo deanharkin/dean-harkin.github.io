@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" class="transition-colors duration-300">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Dean Harkin - CV</title>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 
   <!-- AOS for Animations -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
@@ -20,6 +20,7 @@
       font-family: 'Inter', sans-serif;
     }
 
+    /* Background stripes on sides */
     .bg-stripes::before,
     .bg-stripes::after {
       content: '';
@@ -28,7 +29,11 @@
       width: 80px;
       height: 100vh;
       z-index: -1;
-      background: linear-gradient(to bottom, rgba(52, 152, 219, 0.1) 50%, transparent 50%);
+      background: linear-gradient(
+        to bottom,
+        rgba(79, 70, 229, 0.15) 50%,
+        transparent 50%
+      );
       background-size: 100% 40px;
     }
 
@@ -42,36 +47,49 @@
   </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300 bg-stripes">
-
+<body
+  class="bg-gray-900 text-gray-200 transition-colors duration-300 bg-stripes"
+>
   <div class="max-w-3xl mx-auto px-6 py-12">
-    <!-- Dark Mode Toggle -->
-    <div class="flex justify-end mb-4">
-      <button id="toggleTheme" class="px-4 py-2 text-sm font-semibold rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-        Toggle Dark Mode
-      </button>
-    </div>
-
     <!-- Header -->
     <header class="text-center mb-10">
-      <h1 class="text-4xl font-bold text-gray-900 dark:text-white">Dean Harkin</h1>
-      <p class="text-sm mt-2 text-gray-600 dark:text-gray-300">
-        <a href="mailto:deanharkin03@gmail.com" class="text-blue-600 hover:underline dark:text-blue-400">deanharkin03@gmail.com</a> |
-        <a href="https://github.com/deanharkin" target="_blank" class="text-blue-600 hover:underline dark:text-blue-400">GitHub</a>
+      <h1 class="text-4xl font-bold text-white">Dean Harkin</h1>
+      <p class="text-sm mt-2 text-gray-400">
+        <a
+          href="mailto:deanharkin03@gmail.com"
+          class="text-indigo-400 hover:underline"
+          >deanharkin03@gmail.com</a
+        >
+        |
+        <a
+          href="https://github.com/deanharkin"
+          target="_blank"
+          class="text-indigo-400 hover:underline"
+          >GitHub</a
+        >
       </p>
     </header>
 
     <!-- Education -->
-    <section class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 mb-6" id="education" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-2 text-blue-700 dark:text-blue-400">Education</h2>
-      <p><strong>Atlantic Technological University</strong><br>
+    <section
+      class="bg-gray-800 shadow-lg rounded-lg p-6 mb-6"
+      id="education"
+      data-aos="fade-up"
+    >
+      <h2 class="text-xl font-semibold mb-2 text-indigo-400">Education</h2>
+      <p>
+        <strong>Atlantic Technological University</strong><br />
         BSc (Hons) Cyber Security & Digital Forensics – 2021–2025
       </p>
     </section>
 
     <!-- Skills -->
-    <section class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 mb-6" id="skills" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-2 text-blue-700 dark:text-blue-400">Skills</h2>
+    <section
+      class="bg-gray-800 shadow-lg rounded-lg p-6 mb-6"
+      id="skills"
+      data-aos="fade-up"
+    >
+      <h2 class="text-xl font-semibold mb-2 text-indigo-400">Skills</h2>
       <ul class="list-disc list-inside space-y-1">
         <li>Python, Bash, Linux</li>
         <li>Machine Learning, Snort IDS, Raspberry Pi</li>
@@ -80,47 +98,83 @@
     </section>
 
     <!-- Projects -->
-    <section class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 mb-6" id="projects" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-2 text-blue-700 dark:text-blue-400">Projects</h2>
+    <section
+      class="bg-gray-800 shadow-lg rounded-lg p-6 mb-6"
+      id="projects"
+      data-aos="fade-up"
+    >
+      <h2 class="text-xl font-semibold mb-2 text-indigo-400">Projects</h2>
       <div class="mb-4">
-        <p><strong>Intelligent Home IDS</strong><br>
-          Final year project combining Snort and ML anomaly detection on a Raspberry Pi. 
-          <a href="https://github.com/deanharkin" target="_blank" class="text-blue-600 hover:underline dark:text-blue-400">View on GitHub</a>
+        <p>
+          <strong>Intelligent Home IDS</strong><br />
+          Final year project combining Snort and ML anomaly detection on a
+          Raspberry Pi.
+          <a
+            href="https://github.com/deanharkin"
+            target="_blank"
+            class="text-indigo-400 hover:underline"
+            >View on GitHub</a
+          >
         </p>
       </div>
       <div>
-        <p><strong>Hotel Reservation System</strong><br>
-          Full-stack web application using PHP and phpMyAdmin, developed in a team during Year 3.
+        <p>
+          <strong>Hotel Reservation System</strong><br />
+          Full-stack web application using PHP and phpMyAdmin, developed in a
+          team during Year 3.
         </p>
       </div>
     </section>
 
     <!-- Certifications -->
-    <section class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 mb-6" id="certifications" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-2 text-blue-700 dark:text-blue-400">Certifications</h2>
+    <section
+      class="bg-gray-800 shadow-lg rounded-lg p-6 mb-6"
+      id="certifications"
+      data-aos="fade-up"
+    >
+      <h2 class="text-xl font-semibold mb-2 text-indigo-400">Certifications</h2>
       <ul class="list-disc list-inside">
         <li>Certified Application Security Practitioner – The SecOps Group</li>
       </ul>
     </section>
 
+    <!-- CTF Competitions -->
+    <section
+      class="bg-gray-800 shadow-lg rounded-lg p-6 mb-6"
+      id="ctf"
+      data-aos="fade-up"
+    >
+      <h2 class="text-xl font-semibold mb-2 text-indigo-400">
+        CTF Competitions
+      </h2>
+      <p class="mb-2">
+        Participated in the Zerodays Capture The Flag (CTF) competitions in
+        March 2024 and 2025. These intense cybersecurity challenges
+        simulate real-world hacking and defense scenarios where participants
+        solve puzzles related to exploitation, reverse engineering,
+        cryptography, and web vulnerabilities.
+      </p>
+      <p>
+        Zerodays CTF tests technical skills, problem-solving under pressure,
+        and collaboration with teammates. It’s a key experience for sharpening
+        penetration testing and digital forensics abilities in a competitive
+        environment.
+      </p>
+    </section>
+
     <!-- Contact Button -->
     <div class="text-center mt-10" data-aos="zoom-in">
-      <a href="mailto:deanharkin03@gmail.com?subject=Contact%20from%20CV%20Website"
-         class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-md shadow hover:bg-blue-700 transition duration-200">
-        Get in Touch
-      </a>
+      <a
+        href="mailto:deanharkin03@gmail.com?subject=Contact%20from%20CV%20Website"
+        class="inline-block bg-indigo-600 text-white font-semibold px-6 py-3 rounded-md shadow hover:bg-indigo-700 transition duration-200"
+        >Get in Touch</a
+      >
     </div>
   </div>
 
   <script>
-    // AOS init
+    // Initialize AOS animations
     AOS.init();
-
-    // Dark mode toggle
-    const toggle = document.getElementById('toggleTheme');
-    toggle.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-    });
   </script>
 </body>
 </html>
