@@ -11,24 +11,14 @@
       box-sizing: border-box;
     }
 
-    html, body {
+    body {
+      font-family: 'Fira Code', monospace;
       margin: 0;
       padding: 0;
-      font-family: 'Fira Code', monospace;
       background-color: #0f0f0f;
       color: #d0f0c0;
+      line-height: 1.6;
       overflow-x: hidden;
-      height: 100%;
-    }
-
-    canvas#matrix {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
     }
 
     .container {
@@ -42,6 +32,7 @@
     h1, h2 {
       color: #90ee90;
       text-align: center;
+      margin-top: 0;
     }
 
     p, li {
@@ -57,9 +48,13 @@
       text-decoration: underline;
     }
 
+    ul {
+      padding-left: 1.5em;
+    }
+
     .section {
       margin-bottom: 2em;
-      background-color: rgba(26, 26, 26, 0.95);
+      background-color: #1a1a1a;
       padding: 1em;
       border-radius: 10px;
       box-shadow: 0 0 10px #004d00;
@@ -97,6 +92,25 @@
       background-color: #003d00;
     }
 
+    canvas.binary-canvas {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      height: 100vh;
+      width: 50px;
+      z-index: 0;
+      background: #000;
+      pointer-events: none;
+    }
+
+    .left-matrix {
+      left: 0;
+    }
+
+    .right-matrix {
+      right: 0;
+    }
+
     @media (max-width: 600px) {
       .container {
         padding: 1em;
@@ -109,8 +123,9 @@
   </style>
 </head>
 <body>
-  <!-- Fullscreen Matrix Canvas -->
-  <canvas id="matrix"></canvas>
+  <!-- CMATRIX side effects -->
+  <canvas class="binary-canvas left-matrix"></canvas>
+  <canvas class="binary-canvas right-matrix"></canvas>
 
   <div class="container">
     <h1>Dean Harkin</h1>
@@ -189,47 +204,42 @@
     </div>
   </div>
 
-  <!-- AOS + Matrix Script -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
   <script>
-    const canvas = document.getElementById("matrix");
-    const ctx = canvas.getContext("2d");
+    // CMATRIX effect
+    function startMatrix(canvas) {
+      const ctx = canvas.getContext("2d");
+      canvas.height = window.innerHeight;
+      canvas.width = 50;
+      const letters = "01";
+      const fontSize = 14;
+      const columns = canvas.width / fontSize;
+      const drops = Array(Math.floor(columns)).fill(1);
 
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
+      function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#00ff00";
+        ctx.font = fontSize + "px 'Fira Code', monospace";
 
-    const letters = "01";
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
-
-    function drawMatrix() {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = "#00ff00";
-      ctx.font = fontSize + "px 'Fira Code', monospace";
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
+        for (let i = 0; i < drops.length; i++) {
+          const text = letters[Math.floor(Math.random() * letters.length)];
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
         }
-
-        drops[i]++;
       }
+
+      setInterval(draw, 33);
     }
 
-    setInterval(drawMatrix, 33);
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
+    document.querySelectorAll(".binary-canvas").forEach(startMatrix);
   </script>
 </body>
 </html>
