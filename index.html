@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="transition-colors duration-300">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -14,40 +14,64 @@
   <!-- AOS for Animations -->
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AOS.init();
-    });
-  </script>
 
   <style>
     body {
       font-family: 'Inter', sans-serif;
     }
+
+    .bg-stripes::before,
+    .bg-stripes::after {
+      content: '';
+      position: fixed;
+      top: 0;
+      width: 80px;
+      height: 100vh;
+      z-index: -1;
+      background: linear-gradient(to bottom, rgba(52, 152, 219, 0.1) 50%, transparent 50%);
+      background-size: 100% 40px;
+    }
+
+    .bg-stripes::before {
+      left: 0;
+    }
+
+    .bg-stripes::after {
+      right: 0;
+    }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300 bg-stripes">
 
   <div class="max-w-3xl mx-auto px-6 py-12">
+    <!-- Dark Mode Toggle -->
+    <div class="flex justify-end mb-4">
+      <button id="toggleTheme" class="px-4 py-2 text-sm font-semibold rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+        Toggle Dark Mode
+      </button>
+    </div>
+
+    <!-- Header -->
     <header class="text-center mb-10">
-      <h1 class="text-4xl font-bold text-gray-900">Dean Harkin</h1>
-      <p class="text-sm mt-2 text-gray-600">
-        <a href="mailto:deanharkin03@gmail.com" class="text-blue-600 hover:underline">deanharkin03@gmail.com</a> |
-        <a href="https://github.com/deanharkin" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white">Dean Harkin</h1>
+      <p class="text-sm mt-2 text-gray-600 dark:text-gray-300">
+        <a href="mailto:deanharkin03@gmail.com" class="text-blue-600 hover:underline dark:text-blue-400">deanharkin03@gmail.com</a> |
+        <a href="https://github.com/deanharkin" target="_blank" class="text-blue-600 hover:underline dark:text-blue-400">GitHub</a>
       </p>
     </header>
 
     <!-- Education -->
-    <section class="bg-white shadow-md rounded-lg p-6 mb-6" id="education" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-2 text-blue-700">Education</h2>
+    <section class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 mb-6" id="education" data-aos="fade-up">
+      <h2 class="text-xl font-semibold mb-2 text-blue-700 dark:text-blue-400">Education</h2>
       <p><strong>Atlantic Technological University</strong><br>
         BSc (Hons) Cyber Security & Digital Forensics – 2021–2025
       </p>
     </section>
 
     <!-- Skills -->
-    <section class="bg-white shadow-md rounded-lg p-6 mb-6" id="skills" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-2 text-blue-700">Skills</h2>
+    <section class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 mb-6" id="skills" data-aos="fade-up">
+      <h2 class="text-xl font-semibold mb-2 text-blue-700 dark:text-blue-400">Skills</h2>
       <ul class="list-disc list-inside space-y-1">
         <li>Python, Bash, Linux</li>
         <li>Machine Learning, Snort IDS, Raspberry Pi</li>
@@ -56,12 +80,12 @@
     </section>
 
     <!-- Projects -->
-    <section class="bg-white shadow-md rounded-lg p-6 mb-6" id="projects" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-2 text-blue-700">Projects</h2>
+    <section class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 mb-6" id="projects" data-aos="fade-up">
+      <h2 class="text-xl font-semibold mb-2 text-blue-700 dark:text-blue-400">Projects</h2>
       <div class="mb-4">
         <p><strong>Intelligent Home IDS</strong><br>
           Final year project combining Snort and ML anomaly detection on a Raspberry Pi. 
-          <a href="https://github.com/deanharkin" target="_blank" class="text-blue-600 hover:underline">View on GitHub</a>
+          <a href="https://github.com/deanharkin" target="_blank" class="text-blue-600 hover:underline dark:text-blue-400">View on GitHub</a>
         </p>
       </div>
       <div>
@@ -72,8 +96,8 @@
     </section>
 
     <!-- Certifications -->
-    <section class="bg-white shadow-md rounded-lg p-6 mb-6" id="certifications" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-2 text-blue-700">Certifications</h2>
+    <section class="bg-white dark:bg-gray-800 shadow-md rounded-lg p-6 mb-6" id="certifications" data-aos="fade-up">
+      <h2 class="text-xl font-semibold mb-2 text-blue-700 dark:text-blue-400">Certifications</h2>
       <ul class="list-disc list-inside">
         <li>Certified Application Security Practitioner – The SecOps Group</li>
       </ul>
@@ -88,5 +112,15 @@
     </div>
   </div>
 
+  <script>
+    // AOS init
+    AOS.init();
+
+    // Dark mode toggle
+    const toggle = document.getElementById('toggleTheme');
+    toggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+  </script>
 </body>
 </html>
