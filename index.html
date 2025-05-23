@@ -92,36 +92,23 @@
       background-color: #003d00;
     }
 
-    .binary-column {
+    canvas.binary-canvas {
       position: fixed;
       top: 0;
       bottom: 0;
+      height: 100vh;
       width: 50px;
-      background: black;
-      color: #00ff00;
-      font-family: 'Fira Code', monospace;
-      font-size: 14px;
-      overflow: hidden;
       z-index: 0;
+      background: #000;
       pointer-events: none;
     }
 
-    .left-binary {
+    .left-matrix {
       left: 0;
     }
 
-    .right-binary {
+    .right-matrix {
       right: 0;
-    }
-
-    @keyframes scroll {
-      0% { transform: translateY(-100%); }
-      100% { transform: translateY(100%); }
-    }
-
-    .binary-stream {
-      animation: scroll 10s linear infinite;
-      white-space: pre;
     }
 
     @media (max-width: 600px) {
@@ -136,16 +123,9 @@
   </style>
 </head>
 <body>
-  <div class="binary-column left-binary">
-    <div class="binary-stream">
-      0101010101<br>0011001100<br>1110001110<br>1010101010<br>0101010101<br>0011001100<br>1110001110<br>1010101010<br>0101010101<br>0011001100
-    </div>
-  </div>
-  <div class="binary-column right-binary">
-    <div class="binary-stream">
-      0101010101<br>0011001100<br>1110001110<br>1010101010<br>0101010101<br>0011001100<br>1110001110<br>1010101010<br>0101010101<br>0011001100
-    </div>
-  </div>
+  <!-- CMATRIX side effects -->
+  <canvas class="binary-canvas left-matrix"></canvas>
+  <canvas class="binary-canvas right-matrix"></canvas>
 
   <div class="container">
     <h1>Dean Harkin</h1>
@@ -224,9 +204,42 @@
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
     AOS.init();
+  </script>
+  <script>
+    // CMATRIX effect
+    function startMatrix(canvas) {
+      const ctx = canvas.getContext("2d");
+      canvas.height = window.innerHeight;
+      canvas.width = 50;
+      const letters = "01";
+      const fontSize = 14;
+      const columns = canvas.width / fontSize;
+      const drops = Array(Math.floor(columns)).fill(1);
+
+      function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#00ff00";
+        ctx.font = fontSize + "px 'Fira Code', monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = letters[Math.floor(Math.random() * letters.length)];
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+
+      setInterval(draw, 33);
+    }
+
+    document.querySelectorAll(".binary-canvas").forEach(startMatrix);
   </script>
 </body>
 </html>
