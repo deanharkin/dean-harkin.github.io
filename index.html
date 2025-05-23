@@ -4,131 +4,89 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dean Harkin - CV</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- AOS for Animations -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init();
+    });
+  </script>
+
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f6f8;
-      color: #2c3e50;
-      line-height: 1.6;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2em;
-    }
-
-    h1, h2 {
-      color: #34495e;
-      text-align: center;
-      margin-top: 0;
-    }
-
-    p, li {
-      font-size: 1rem;
-    }
-
-    a {
-      color: #2980b9;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    ul {
-      padding-left: 1.5em;
-    }
-
-    .section {
-      margin-bottom: 2em;
-    }
-
-    .button-container {
-      text-align: center;
-      margin-top: 3em;
-    }
-
-    .contact-button {
-      background-color: #2980b9;
-      color: white;
-      padding: 0.75em 1.5em;
-      border: none;
-      border-radius: 4px;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .contact-button:hover {
-      background-color: #1f5f8b;
-    }
-
-    @media (max-width: 600px) {
-      .container {
-        padding: 1em;
-      }
-
-      h1, h2 {
-        font-size: 1.5rem;
-      }
+      font-family: 'Inter', sans-serif;
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1>Dean Harkin</h1>
-    <p style="text-align: center;">
-      Email: <a href="mailto:deanharkin03@gmail.com">deanharkin03@gmail.com</a> |
-      GitHub: <a href="https://github.com/deanharkin" target="_blank">deanharkin</a>
-    </p>
+<body class="bg-gray-100 text-gray-800">
 
-    <div class="section">
-      <h2>Education</h2>
+  <div class="max-w-3xl mx-auto px-6 py-12">
+    <header class="text-center mb-10">
+      <h1 class="text-4xl font-bold text-gray-900">Dean Harkin</h1>
+      <p class="text-sm mt-2 text-gray-600">
+        <a href="mailto:deanharkin03@gmail.com" class="text-blue-600 hover:underline">deanharkin03@gmail.com</a> |
+        <a href="https://github.com/deanharkin" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+      </p>
+    </header>
+
+    <!-- Education -->
+    <section class="bg-white shadow-md rounded-lg p-6 mb-6" id="education" data-aos="fade-up">
+      <h2 class="text-xl font-semibold mb-2 text-blue-700">Education</h2>
       <p><strong>Atlantic Technological University</strong><br>
-      BSc (Hons) Cyber Security & Digital Forensics – 2021–2025</p>
-    </div>
+        BSc (Hons) Cyber Security & Digital Forensics – 2021–2025
+      </p>
+    </section>
 
-    <div class="section">
-      <h2>Skills</h2>
-      <ul>
+    <!-- Skills -->
+    <section class="bg-white shadow-md rounded-lg p-6 mb-6" id="skills" data-aos="fade-up">
+      <h2 class="text-xl font-semibold mb-2 text-blue-700">Skills</h2>
+      <ul class="list-disc list-inside space-y-1">
         <li>Python, Bash, Linux</li>
         <li>Machine Learning, Snort IDS, Raspberry Pi</li>
         <li>Networking, Penetration Testing Tools (Hydra, hping3, Wireshark)</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="section">
-      <h2>Projects</h2>
-      <p><strong>Intelligent Home IDS</strong><br>
-      Final year project combining Snort and ML anomaly detection on a Raspberry Pi. 
-      <a href="https://github.com/deanharkin" target="_blank">View on GitHub</a>
-      </p>
+    <!-- Projects -->
+    <section class="bg-white shadow-md rounded-lg p-6 mb-6" id="projects" data-aos="fade-up">
+      <h2 class="text-xl font-semibold mb-2 text-blue-700">Projects</h2>
+      <div class="mb-4">
+        <p><strong>Intelligent Home IDS</strong><br>
+          Final year project combining Snort and ML anomaly detection on a Raspberry Pi. 
+          <a href="https://github.com/deanharkin" target="_blank" class="text-blue-600 hover:underline">View on GitHub</a>
+        </p>
+      </div>
+      <div>
+        <p><strong>Hotel Reservation System</strong><br>
+          Full-stack web application using PHP and phpMyAdmin, developed in a team during Year 3.
+        </p>
+      </div>
+    </section>
 
-      <p><strong>Hotel Reservation System</strong><br>
-      Full-stack web application using PHP and phpMyAdmin, developed in a team during Year 3.
-      </p>
-    </div>
-
-    <div class="section">
-      <h2>Certifications</h2>
-      <ul>
+    <!-- Certifications -->
+    <section class="bg-white shadow-md rounded-lg p-6 mb-6" id="certifications" data-aos="fade-up">
+      <h2 class="text-xl font-semibold mb-2 text-blue-700">Certifications</h2>
+      <ul class="list-disc list-inside">
         <li>Certified Application Security Practitioner – The SecOps Group</li>
       </ul>
-    </div>
+    </section>
 
-    <div class="button-container">
-      <a class="contact-button" href="mailto:deanharkin03@gmail.com?subject=Contact%20from%20CV%20Website">Get in Touch</a>
+    <!-- Contact Button -->
+    <div class="text-center mt-10" data-aos="zoom-in">
+      <a href="mailto:deanharkin03@gmail.com?subject=Contact%20from%20CV%20Website"
+         class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-md shadow hover:bg-blue-700 transition duration-200">
+        Get in Touch
+      </a>
     </div>
   </div>
+
 </body>
 </html>
