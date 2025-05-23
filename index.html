@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dean Harkin - CV</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -17,7 +18,6 @@
       background-color: #0f1e16;
       color: #d1d5db;
       line-height: 1.6;
-      position: relative;
       overflow-x: hidden;
     }
 
@@ -35,21 +35,13 @@
       margin: 0 auto;
       padding: 2em;
       position: relative;
-      z-index: 1;
+      z-index: 10;
     }
 
     h1, h2 {
       color: #4ade80;
       text-align: center;
       margin-top: 0;
-    }
-
-    p, li {
-      font-size: 1rem;
-    }
-
-    ul {
-      padding-left: 1.5em;
     }
 
     .section {
@@ -105,95 +97,35 @@
       }
     }
 
-    /* Binary Side Streams */
-    .binary-stream {
+    /* Matrix Canvas */
+    canvas.matrix {
       position: fixed;
       top: 0;
-      bottom: 0;
-      width: 80px;
-      color: #4ade80;
-      font-family: monospace;
-      font-size: 0.875rem;
-      line-height: 1.2;
-      opacity: 0.1;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .binary-stream.left {
       left: 0;
-      padding-left: 10px;
-      background: linear-gradient(to bottom, transparent, #0f1e16 50%, transparent);
-    }
-
-    .binary-stream.right {
-      right: 0;
-      padding-right: 10px;
-      text-align: right;
-      background: linear-gradient(to bottom, transparent, #0f1e16 50%, transparent);
-    }
-
-    .binary-line {
-      animation: scrollBinary 5s linear infinite;
-      white-space: pre;
-    }
-
-    @keyframes scrollBinary {
-      0% {
-        transform: translateY(-100%);
-      }
-      100% {
-        transform: translateY(100%);
-      }
+      height: 100vh;
+      width: 100vw;
+      z-index: 0;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
+  <canvas class="matrix"></canvas>
 
-  <!-- Binary Rain Left -->
-  <div class="binary-stream left">
-    <div class="binary-line">
-      0101010101010101<br>
-      1010101010101010<br>
-      1100110011001100<br>
-      0011001100110011<br>
-      0101101011010110<br>
-      1010010100101010<br>
-      1101001011010010<br>
-      0110100110100110<br>
-    </div>
-  </div>
-
-  <!-- Binary Rain Right -->
-  <div class="binary-stream right">
-    <div class="binary-line">
-      0110100110010110<br>
-      1101010101101010<br>
-      0011001100110011<br>
-      1010101010101010<br>
-      0101010101010101<br>
-      1100110011001100<br>
-      0110100110100110<br>
-      0010011001100110<br>
-    </div>
-  </div>
-
-  <!-- Main Content -->
   <div class="container">
-    <h1>Dean Harkin</h1>
-    <p style="text-align: center;">
+    <h1 data-aos="fade-down">Dean Harkin</h1>
+    <p style="text-align: center;" data-aos="fade-up">
       Email: <a href="mailto:deanharkin03@gmail.com">deanharkin03@gmail.com</a> |
       GitHub: <a href="https://github.com/deanharkin" target="_blank">deanharkin</a>
     </p>
 
-    <div class="section">
+    <div class="section" data-aos="fade-up">
       <h2>Education</h2>
       <p><strong>Atlantic Technological University</strong><br>
       BSc (Hons) Cyber Security & Digital Forensics – 2021–2025</p>
     </div>
 
-    <div class="section">
+    <div class="section" data-aos="fade-up">
       <h2>Skills</h2>
       <div class="skills-container">
         <div class="skills-column">
@@ -225,7 +157,7 @@
       </div>
     </div>
 
-    <div class="section">
+    <div class="section" data-aos="fade-up">
       <h2>Projects</h2>
       <p><strong>Intelligent Home IDS</strong><br>
       Final year project combining Snort and ML anomaly detection on a Raspberry Pi. 
@@ -237,23 +169,72 @@
       </p>
     </div>
 
-    <div class="section">
+    <div class="section" data-aos="fade-up">
       <h2>CTF Competitions</h2>
       <p><strong>ZeroDays CTF – March 2024 & 2025</strong><br>
       Participated in Ireland’s largest CTF competition hosted by ZeroDays. Events involved solving challenges across reverse engineering, web exploitation, cryptography, steganography, and network forensics. Played in a team format, collaborating on timed problems to test applied knowledge in a real-world cyber operations setting.
       </p>
     </div>
 
-    <div class="section">
+    <div class="section" data-aos="fade-up">
       <h2>Certifications</h2>
       <ul>
         <li>Certified Application Security Practitioner – The SecOps Group</li>
       </ul>
     </div>
 
-    <div class="button-container">
+    <div class="button-container" data-aos="zoom-in">
       <a class="contact-button" href="mailto:deanharkin03@gmail.com?subject=Contact%20from%20CV%20Website">Get in Touch</a>
     </div>
   </div>
+
+  <!-- Matrix Effect Script -->
+  <script>
+    const canvas = document.querySelector('canvas.matrix');
+    const ctx = canvas.getContext('2d');
+
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+
+    const letters = '01';
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array.from({ length: columns }).fill(1);
+
+    function drawMatrix() {
+      ctx.fillStyle = 'rgba(15, 30, 22, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = '#4ade80';
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 33);
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+
+  <!-- AOS Animation -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+    });
+  </script>
 </body>
 </html>
