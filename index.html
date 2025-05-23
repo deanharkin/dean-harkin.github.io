@@ -1,242 +1,259 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dean Harkin - CV</title>
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-
-  <!-- AOS for Animations -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0f1e16;
-      color: #d1d5db;
+      font-family: 'Fira Code', monospace;
       margin: 0;
       padding: 0;
+      background-color: #0f1e16;
+      color: #d1d5db;
+      line-height: 1.6;
+      position: relative;
+      overflow-x: hidden;
     }
 
-    /* Side stripes background */
-    .bg-stripes::before,
-    .bg-stripes::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      width: 80px;
-      height: 100vh;
-      z-index: -1;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(74, 222, 128, 0.15),
-        rgba(74, 222, 128, 0.15) 20px,
-        transparent 20px,
-        transparent 40px
-      );
-    }
-
-    .bg-stripes::before {
-      left: 0;
-    }
-
-    .bg-stripes::after {
-      right: 0;
-    }
-
-    /* Cards background */
-    .bg-card {
-      background-color: #1b2f24;
-    }
-
-    /* Accent color */
-    .text-accent {
+    a {
       color: #4ade80;
-    }
-
-    a.text-accent:hover {
-      color: #3f9142;
-      text-decoration: underline;
-    }
-
-    /* Button styling */
-    .btn-accent {
-      background-color: #4ade80;
-      color: #0f1e16;
-      font-weight: 600;
-      padding: 0.75rem 1.5rem;
-      border-radius: 0.375rem;
-      box-shadow: 0 4px 6px rgba(74, 222, 128, 0.4);
-      transition: background-color 0.3s ease;
-      display: inline-block;
       text-decoration: none;
     }
 
-    .btn-accent:hover {
-      background-color: #3f9142;
-      color: #d1d5db;
-      box-shadow: 0 6px 10px rgba(63, 145, 66, 0.6);
+    a:hover {
+      text-decoration: underline;
     }
 
-    /* Skills section horizontal columns, right to left */
-    .skills-columns {
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2em;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1, h2 {
+      color: #4ade80;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    p, li {
+      font-size: 1rem;
+    }
+
+    ul {
+      padding-left: 1.5em;
+    }
+
+    .section {
+      background-color: #1b2f24;
+      padding: 1.5em;
+      margin-bottom: 2em;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    }
+
+    .skills-container {
       display: flex;
+      flex-direction: row-reverse;
       justify-content: space-between;
-      gap: 2rem;
+      gap: 1em;
       flex-wrap: wrap;
-      direction: rtl; /* makes columns right-to-left */
     }
 
-    .skills-category {
+    .skills-column {
       flex: 1;
-      min-width: 180px;
-      direction: ltr; /* reset text direction inside */
+      min-width: 200px;
     }
 
-    .skills-category h3 {
-      margin-bottom: 0.5rem;
-      color: #86efac; /* lighter green */
-      font-weight: 600;
-      font-size: 1.125rem;
+    .button-container {
+      text-align: center;
+      margin-top: 3em;
     }
 
-    .skills-category ul {
-      list-style-type: disc;
-      padding-left: 1.25rem;
-      color: #cbd5e1; /* light gray */
+    .contact-button {
+      background-color: #4ade80;
+      color: #0f1e16;
+      padding: 0.75em 1.5em;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
     }
 
-    .skills-category ul li {
-      margin-bottom: 0.25rem;
+    .contact-button:hover {
+      background-color: #3f9142;
     }
 
-    /* Responsive tweaks */
-    @media (max-width: 640px) {
-      .skills-columns {
-        flex-direction: column;
-        direction: ltr;
+    @media (max-width: 600px) {
+      .container {
+        padding: 1em;
       }
-      .skills-category {
-        min-width: auto;
+
+      .skills-container {
+        flex-direction: column;
+      }
+    }
+
+    /* Binary Side Streams */
+    .binary-stream {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 80px;
+      color: #4ade80;
+      font-family: monospace;
+      font-size: 0.875rem;
+      line-height: 1.2;
+      opacity: 0.1;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .binary-stream.left {
+      left: 0;
+      padding-left: 10px;
+      background: linear-gradient(to bottom, transparent, #0f1e16 50%, transparent);
+    }
+
+    .binary-stream.right {
+      right: 0;
+      padding-right: 10px;
+      text-align: right;
+      background: linear-gradient(to bottom, transparent, #0f1e16 50%, transparent);
+    }
+
+    .binary-line {
+      animation: scrollBinary 5s linear infinite;
+      white-space: pre;
+    }
+
+    @keyframes scrollBinary {
+      0% {
+        transform: translateY(-100%);
+      }
+      100% {
+        transform: translateY(100%);
       }
     }
   </style>
 </head>
+<body>
 
-<body class="bg-stripes">
-  <div class="max-w-3xl mx-auto px-6 py-12">
-    <!-- Header -->
-    <header class="text-center mb-10">
-      <h1 class="text-4xl font-bold text-white">Dean Harkin</h1>
-      <p class="text-sm mt-2 text-gray-400">
-        <a href="mailto:deanharkin03@gmail.com" class="text-accent hover:underline">deanharkin03@gmail.com</a>
-        |
-        <a href="https://github.com/deanharkin" target="_blank" class="text-accent hover:underline">GitHub</a>
-      </p>
-    </header>
+  <!-- Binary Rain Left -->
+  <div class="binary-stream left">
+    <div class="binary-line">
+      0101010101010101<br>
+      1010101010101010<br>
+      1100110011001100<br>
+      0011001100110011<br>
+      0101101011010110<br>
+      1010010100101010<br>
+      1101001011010010<br>
+      0110100110100110<br>
+    </div>
+  </div>
 
-    <!-- Education -->
-    <section class="bg-card shadow-lg rounded-lg p-6 mb-6" id="education" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-2 text-accent">Education</h2>
-      <p>
-        <strong>Atlantic Technological University</strong><br />
-        BSc (Hons) Cyber Security & Digital Forensics – 2021–2025
-      </p>
-    </section>
+  <!-- Binary Rain Right -->
+  <div class="binary-stream right">
+    <div class="binary-line">
+      0110100110010110<br>
+      1101010101101010<br>
+      0011001100110011<br>
+      1010101010101010<br>
+      0101010101010101<br>
+      1100110011001100<br>
+      0110100110100110<br>
+      0010011001100110<br>
+    </div>
+  </div>
 
-    <!-- Skills -->
-    <section class="bg-card shadow-lg rounded-lg p-6 mb-6" id="skills" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-6 text-accent">Skills</h2>
-      <div class="skills-columns">
-        <div class="skills-category">
-          <h3>Forensic Tools</h3>
+  <!-- Main Content -->
+  <div class="container">
+    <h1>Dean Harkin</h1>
+    <p style="text-align: center;">
+      Email: <a href="mailto:deanharkin03@gmail.com">deanharkin03@gmail.com</a> |
+      GitHub: <a href="https://github.com/deanharkin" target="_blank">deanharkin</a>
+    </p>
+
+    <div class="section">
+      <h2>Education</h2>
+      <p><strong>Atlantic Technological University</strong><br>
+      BSc (Hons) Cyber Security & Digital Forensics – 2021–2025</p>
+    </div>
+
+    <div class="section">
+      <h2>Skills</h2>
+      <div class="skills-container">
+        <div class="skills-column">
+          <strong>Forensics Tools</strong>
+          <ul>
+            <li>Autopsy</li>
+            <li>FTK Imager</li>
+            <li>ProDiscover</li>
+          </ul>
+        </div>
+        <div class="skills-column">
+          <strong>Networking & Security</strong>
           <ul>
             <li>Wireshark</li>
             <li>Nmap</li>
-            <li>Autopsy</li>
-            <li>ProDiscover</li>
-            <li>FTK Imager</li>
-          </ul>
-        </div>
-
-        <div class="skills-category">
-          <h3>Penetration Testing & Networking</h3>
-          <ul>
             <li>Metasploit Framework</li>
             <li>Cisco Packet Tracer</li>
-            <li>Hydra</li>
-            <li>hping3</li>
-            <li>Snort IDS</li>
-            <li>Raspberry Pi</li>
           </ul>
         </div>
-
-        <div class="skills-category">
-          <h3>Coding Languages</h3>
+        <div class="skills-column">
+          <strong>Coding Languages</strong>
           <ul>
             <li>Python</li>
             <li>Java</li>
             <li>PHP</li>
             <li>R</li>
-            <li>Bash</li>
           </ul>
         </div>
       </div>
-    </section>
+    </div>
 
-    <!-- Projects -->
-    <section class="bg-card shadow-lg rounded-lg p-6 mb-6" id="projects" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-2 text-accent">Projects</h2>
-      <div class="mb-4">
-        <p>
-          <strong>Intelligent Home IDS</strong><br />
-          Final year project combining Snort and ML anomaly detection on a Raspberry Pi.
-          <a href="https://github.com/deanharkin" target="_blank" class="text-accent hover:underline">View on GitHub</a>
-        </p>
-      </div>
-      <div>
-        <p>
-          <strong>Hotel Reservation System</strong><br />
-          Full-stack web application using PHP and phpMyAdmin, developed in a team during Year 3.
-        </p>
-      </div>
-    </section>
+    <div class="section">
+      <h2>Projects</h2>
+      <p><strong>Intelligent Home IDS</strong><br>
+      Final year project combining Snort and ML anomaly detection on a Raspberry Pi. 
+      <a href="https://github.com/deanharkin" target="_blank">View on GitHub</a>
+      </p>
 
-    <!-- Certifications -->
-    <section class="bg-card shadow-lg rounded-lg p-6 mb-6" id="certifications" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-2 text-accent">Certifications</h2>
-      <ul class="list-disc list-inside text-gray-300">
+      <p><strong>Hotel Reservation System</strong><br>
+      Full-stack web application using PHP and phpMyAdmin, developed in a team during Year 3.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>CTF Competitions</h2>
+      <p><strong>ZeroDays CTF – March 2024 & 2025</strong><br>
+      Participated in Ireland’s largest CTF competition hosted by ZeroDays. Events involved solving challenges across reverse engineering, web exploitation, cryptography, steganography, and network forensics. Played in a team format, collaborating on timed problems to test applied knowledge in a real-world cyber operations setting.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Certifications</h2>
+      <ul>
         <li>Certified Application Security Practitioner – The SecOps Group</li>
       </ul>
-    </section>
+    </div>
 
-    <!-- CTF Competitions -->
-    <section class="bg-card shadow-lg rounded-lg p-6 mb-6" id="ctf" data-aos="fade-up">
-      <h2 class="text-xl font-semibold mb-2 text-accent">CTF Competitions</h2>
-      <p class="mb-2 text-gray-300">
-        Participated in the Zerodays Capture The Flag (CTF) competitions in March 2024 and 2025. These intense cybersecurity challenges simulate real-world hacking and defense scenarios where participants solve puzzles related to exploitation, reverse engineering, cryptography, and web vulnerabilities.
-      </p>
-      <p class="text-gray-300">
-        Zerodays CTF tests technical skills, problem-solving under pressure, and collaboration with teammates. It’s a key experience for sharpening penetration testing and digital forensics abilities in a competitive environment.
-      </p>
-    </section>
-
-    <!-- Contact Button -->
-    <div class="text-center mt-10" data-aos="zoom-in">
-      <a href="mailto:deanharkin03@gmail.com?subject=Contact%20from%20CV%20Website" class="btn-accent">
-        Get in Touch
-      </a>
+    <div class="button-container">
+      <a class="contact-button" href="mailto:deanharkin03@gmail.com?subject=Contact%20from%20CV%20Website">Get in Touch</a>
     </div>
   </div>
-
-  <script>
-    AOS.init();
-  </script>
 </body>
 </html>
