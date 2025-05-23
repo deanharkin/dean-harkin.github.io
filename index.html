@@ -3,77 +3,147 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dean Harkin - CV</title>
+  <title>Dean Harkin</title>
   <style>
     body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 2em;
-  line-height: 1.6;
-  background-color: #f4f6f8;
-  color: #2c3e50;
-}
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      color: #2c3e50;
+      margin: 0;
+      padding: 0;
+    }
 
-h1, h2 {
-  color: #34495e;
-}
+    header {
+      background-color: #34495e;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
 
-a {
-  color: #2980b9;
-  text-decoration: none;
-}
+    header h1 {
+      margin: 0;
+    }
 
-a:hover {
-  text-decoration: underline;
-}
+    header p {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+    }
 
-ul {
-  padding-left: 1.2em;
-}
+    nav {
+      background-color: #2c3e50;
+      text-align: center;
+      padding: 0.5rem 0;
+    }
 
-strong {
-  color: #2c3e50;
-}
+    nav a {
+      color: #ecf0f1;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-@media (max-width: 600px) {
-  body {
-    margin: 1em;
-    font-size: 1rem;
-  }
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
 
+    section {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #34495e;
+      border-bottom: 2px solid #bdc3c7;
+      padding-bottom: 0.3rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 1rem;
+      background-color: #ecf0f1;
+      color: #7f8c8d;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Dean Harkin</h1>
-  <p>Email: <a href="mailto:deanharkin03@gmail.com">deanharkin03@gmail.com</a> | 
-     GitHub: <a href="https://github.com/deanharkin" target="_blank">deanharkin</a>
-  </p>
 
+<header>
+  <h1>Dean Harkin</h1>
+  <p>Cyber Security & Digital Forensics Student | Final Year Project: Intelligent Home IDS</p>
+  <p><a href="mailto:deanharkin03@gmail.com" style="color: #ecf0f1;">deanharkin03@gmail.com</a> | 
+     <a href="https://github.com/deanharkin" style="color: #ecf0f1;" target="_blank">GitHub</a>
+  </p>
+</header>
+
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#education">Education</a>
+  <a href="#certs">Certifications</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I'm a final year student at Atlantic Technological University, studying Cyber Security and Digital Forensics. 
+    I'm passionate about intrusion detection, ethical hacking, and using machine learning for cyber defense.
+  </p>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <ul>
+    <li>Programming: Python, Bash</li>
+    <li>OS & Tools: Linux, Kali, Wireshark, Snort, Hydra, hping3</li>
+    <li>Machine Learning: Scikit-learn, Isolation Forest</li>
+    <li>Networking, Cyber Security, Raspberry Pi Systems</li>
+  </ul>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <p><strong>Intelligent Home IDS</strong></p>
+  <p>
+    Final year project combining a rule-based Snort IDS with anomaly detection using ML on a Raspberry Pi.
+    <br />
+    <a href="https://github.com/deanharkin" target="_blank">View on GitHub</a>
+  </p>
+  <p><strong>Hotel Reservation System</strong></p>
+  <p>
+    Group project in 3rd year using PHP and phpMyAdmin to build a fully functional hotel booking system.
+  </p>
+</section>
+
+<section id="education">
   <h2>Education</h2>
   <p><strong>Atlantic Technological University</strong><br />
   BSc (Hons) Cyber Security & Digital Forensics – 2021–2025</p>
+</section>
 
-  <h2>Skills</h2>
-  <ul>
-    <li>Python, Bash, Linux</li>
-    <li>Machine Learning, Snort IDS, Raspberry Pi</li>
-    <li>Networking, Penetration Testing Tools (Hydra, hping3, Wireshark)</li>
-  </ul>
-
- <h2>Projects</h2>
-<p><strong>Intelligent Home IDS</strong><br />
-Final year project combining Snort and ML anomaly detection on a Raspberry Pi. 
-<a href="https://github.com/deanharkin" target="_blank">View on GitHub</a>
-</p>
-
-<p><strong>Hotel Reservation System</strong><br />
-3rd year group project building a dynamic hotel booking platform using PHP, HTML/CSS, and a MySQL database managed with phpMyAdmin. Focused on backend development and database design.
-<a href="https://github.com/deanharkin" target="_blank">View on GitHub</a>
-</p>
-
+<section id="certs">
   <h2>Certifications</h2>
   <ul>
     <li>Certified Application Security Practitioner – The SecOps Group</li>
   </ul>
+</section>
+
+<footer>
+  &copy; 2025 Dean Harkin. All rights reserved.
+</footer>
+
 </body>
 </html>
