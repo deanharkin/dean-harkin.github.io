@@ -69,11 +69,6 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1em;
-      direction: rtl; /* Right to left for skills categories */
-    }
-
-    .skills-grid > div {
-      direction: ltr; /* Reset direction inside each grid cell */
     }
 
     .button-container {
@@ -96,8 +91,6 @@
       cursor: pointer;
       text-decoration: none;
       transition: background-color 0.3s ease;
-      min-width: 180px;
-      text-align: center;
     }
 
     .contact-button:hover {
@@ -205,17 +198,13 @@
     const canvas = document.getElementById("matrix");
     const ctx = canvas.getContext("2d");
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
 
     const letters = "01";
     const fontSize = 14;
-    const columns = Math.floor(canvas.width / fontSize);
-    const drops = Array(columns).fill(1);
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
 
     function drawMatrix() {
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
@@ -237,6 +226,10 @@
     }
 
     setInterval(drawMatrix, 33);
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
   </script>
 </body>
 </html>
