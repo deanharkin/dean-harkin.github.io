@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dean Harkin - CV</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
@@ -15,70 +15,69 @@
       font-family: 'Fira Code', monospace;
       margin: 0;
       padding: 0;
-      background-color: #0f1e16;
-      color: #d1d5db;
+      background-color: #0f0f0f;
+      color: #d0f0c0;
       line-height: 1.6;
       overflow-x: hidden;
     }
 
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2em;
+      position: relative;
+      z-index: 1;
+    }
+
+    h1, h2 {
+      color: #90ee90;
+      text-align: center;
+      margin-top: 0;
+    }
+
+    p, li {
+      font-size: 1rem;
+    }
+
     a {
-      color: #a6f4c5;
+      color: #98fb98;
       text-decoration: none;
-      text-shadow: 0 0 4px #4ade80;
     }
 
     a:hover {
       text-decoration: underline;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2em;
-      position: relative;
-      z-index: 10;
-      background-color: rgba(15, 30, 22, 0.8); /* overlay */
-      border-radius: 12px;
-      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
-    }
-
-    h1, h2 {
-      color: #a6f4c5;
-      text-align: center;
-      margin-top: 0;
-      text-shadow: 0 0 6px #4ade80;
+    ul {
+      padding-left: 1.5em;
     }
 
     .section {
-      background-color: #1b2f24;
-      padding: 1.5em;
       margin-bottom: 2em;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+      background-color: #1a1a1a;
+      padding: 1em;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #004d00;
     }
 
-    .skills-container {
-      display: flex;
-      flex-direction: row-reverse;
-      justify-content: space-between;
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1em;
-      flex-wrap: wrap;
-    }
-
-    .skills-column {
-      flex: 1;
-      min-width: 200px;
     }
 
     .button-container {
       text-align: center;
       margin-top: 3em;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      align-items: center;
     }
 
     .contact-button {
-      background-color: #4ade80;
-      color: #0f1e16;
+      background-color: #006400;
+      color: white;
       padding: 0.75em 1.5em;
       border: none;
       border-radius: 4px;
@@ -87,11 +86,42 @@
       cursor: pointer;
       text-decoration: none;
       transition: background-color 0.3s ease;
-      box-shadow: 0 0 8px #4ade80;
     }
 
     .contact-button:hover {
-      background-color: #3f9142;
+      background-color: #003d00;
+    }
+
+    .binary-column {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      width: 50px;
+      background: black;
+      color: #00ff00;
+      font-family: 'Fira Code', monospace;
+      font-size: 14px;
+      overflow: hidden;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .left-binary {
+      left: 0;
+    }
+
+    .right-binary {
+      right: 0;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
+
+    .binary-stream {
+      animation: scroll 10s linear infinite;
+      white-space: pre;
     }
 
     @media (max-width: 600px) {
@@ -99,29 +129,27 @@
         padding: 1em;
       }
 
-      .skills-container {
-        flex-direction: column;
+      h1, h2 {
+        font-size: 1.5rem;
       }
-    }
-
-    /* Matrix Canvas */
-    canvas.matrix {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      z-index: 0;
-      pointer-events: none;
     }
   </style>
 </head>
 <body>
-  <canvas class="matrix"></canvas>
+  <div class="binary-column left-binary">
+    <div class="binary-stream">
+      0101010101<br>0011001100<br>1110001110<br>1010101010<br>0101010101<br>0011001100<br>1110001110<br>1010101010<br>0101010101<br>0011001100
+    </div>
+  </div>
+  <div class="binary-column right-binary">
+    <div class="binary-stream">
+      0101010101<br>0011001100<br>1110001110<br>1010101010<br>0101010101<br>0011001100<br>1110001110<br>1010101010<br>0101010101<br>0011001100
+    </div>
+  </div>
 
   <div class="container">
-    <h1 data-aos="fade-down">Dean Harkin</h1>
-    <p style="text-align: center;" data-aos="fade-up">
+    <h1>Dean Harkin</h1>
+    <p style="text-align: center;">
       Email: <a href="mailto:deanharkin03@gmail.com">deanharkin03@gmail.com</a> |
       GitHub: <a href="https://github.com/deanharkin" target="_blank">deanharkin</a>
     </p>
@@ -134,25 +162,25 @@
 
     <div class="section" data-aos="fade-up">
       <h2>Skills</h2>
-      <div class="skills-container">
-        <div class="skills-column">
-          <strong>Forensics Tools</strong>
+      <div class="skills-grid">
+        <div>
+          <strong>Forensic Tools</strong>
           <ul>
             <li>Autopsy</li>
-            <li>FTK Imager</li>
             <li>ProDiscover</li>
+            <li>FTK Imager</li>
           </ul>
         </div>
-        <div class="skills-column">
+        <div>
           <strong>Networking & Security</strong>
           <ul>
             <li>Wireshark</li>
-            <li>Nmap</li>
+            <li>nmap</li>
             <li>Metasploit Framework</li>
             <li>Cisco Packet Tracer</li>
           </ul>
         </div>
-        <div class="skills-column">
+        <div>
           <strong>Coding Languages</strong>
           <ul>
             <li>Python</li>
@@ -167,7 +195,7 @@
     <div class="section" data-aos="fade-up">
       <h2>Projects</h2>
       <p><strong>Intelligent Home IDS</strong><br>
-      Final year project combining Snort and ML anomaly detection on a Raspberry Pi. 
+      Final year project combining Snort and ML anomaly detection on a Raspberry Pi.
       <a href="https://github.com/deanharkin" target="_blank">View on GitHub</a>
       </p>
 
@@ -179,7 +207,7 @@
     <div class="section" data-aos="fade-up">
       <h2>CTF Competitions</h2>
       <p><strong>ZeroDays CTF – March 2024 & 2025</strong><br>
-      Participated in Ireland’s largest CTF competition hosted by ZeroDays. Events involved solving challenges across reverse engineering, web exploitation, cryptography, steganography, and network forensics. Played in a team format, collaborating on timed problems to test applied knowledge in a real-world cyber operations setting.
+      Participated in the ZeroDays CTF competitions held annually. Focused on offensive and defensive cyber security challenges involving cryptography, reverse engineering, web vulnerabilities, and network analysis. Worked in a team environment to solve complex problems under time constraints, helping to develop both technical and collaborative skills.
       </p>
     </div>
 
@@ -192,56 +220,13 @@
 
     <div class="button-container" data-aos="zoom-in">
       <a class="contact-button" href="mailto:deanharkin03@gmail.com?subject=Contact%20from%20CV%20Website">Get in Touch</a>
+      <a class="contact-button" href="CV - Dean Harkin 2025.pdf" download>Download CV (PDF)</a>
     </div>
   </div>
 
-  <!-- Matrix Effect Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
   <script>
-    const canvas = document.querySelector('canvas.matrix');
-    const ctx = canvas.getContext('2d');
-
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-
-    const letters = '01';
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = Array.from({ length: columns }).fill(1);
-
-    function drawMatrix() {
-      ctx.fillStyle = 'rgba(15, 30, 22, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      ctx.fillStyle = '#4ade80';
-      ctx.font = `${fontSize}px monospace`;
-
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters[Math.floor(Math.random() * letters.length)];
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-
-        drops[i]++;
-      }
-    }
-
-    setInterval(drawMatrix, 33);
-
-    window.addEventListener('resize', () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    });
-  </script>
-
-  <!-- AOS Animation -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true,
-    });
+    AOS.init();
   </script>
 </body>
 </html>
