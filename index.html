@@ -31,7 +31,7 @@
       z-index: -1;
       background: linear-gradient(
         to bottom,
-        rgba(79, 70, 229, 0.15) 50%,
+        rgba(31, 78, 36, 0.15) 50%,
         transparent 50%
       );
       background-size: 100% 40px;
@@ -43,6 +43,28 @@
 
     .bg-stripes::after {
       right: 0;
+    }
+
+    /* Custom colors for dark green theme */
+    .text-accent {
+      color: #1f4e24; /* dark green */
+    }
+
+    .bg-card {
+      background-color: #133015; /* very dark green */
+    }
+
+    .btn-accent {
+      background-color: #1f4e24;
+    }
+
+    .btn-accent:hover {
+      background-color: #16401a;
+    }
+
+    a.text-accent:hover {
+      text-decoration: underline;
+      color: #16401a;
     }
   </style>
 </head>
@@ -57,14 +79,14 @@
       <p class="text-sm mt-2 text-gray-400">
         <a
           href="mailto:deanharkin03@gmail.com"
-          class="text-indigo-400 hover:underline"
+          class="text-accent hover:underline"
           >deanharkin03@gmail.com</a
         >
         |
         <a
           href="https://github.com/deanharkin"
           target="_blank"
-          class="text-indigo-400 hover:underline"
+          class="text-accent hover:underline"
           >GitHub</a
         >
       </p>
@@ -72,11 +94,11 @@
 
     <!-- Education -->
     <section
-      class="bg-gray-800 shadow-lg rounded-lg p-6 mb-6"
+      class="bg-card shadow-lg rounded-lg p-6 mb-6"
       id="education"
       data-aos="fade-up"
     >
-      <h2 class="text-xl font-semibold mb-2 text-indigo-400">Education</h2>
+      <h2 class="text-xl font-semibold mb-2 text-accent">Education</h2>
       <p>
         <strong>Atlantic Technological University</strong><br />
         BSc (Hons) Cyber Security & Digital Forensics – 2021–2025
@@ -85,25 +107,54 @@
 
     <!-- Skills -->
     <section
-      class="bg-gray-800 shadow-lg rounded-lg p-6 mb-6"
+      class="bg-card shadow-lg rounded-lg p-6 mb-6"
       id="skills"
       data-aos="fade-up"
     >
-      <h2 class="text-xl font-semibold mb-2 text-indigo-400">Skills</h2>
-      <ul class="list-disc list-inside space-y-1">
-        <li>Python, Bash, Linux</li>
-        <li>Machine Learning, Snort IDS, Raspberry Pi</li>
-        <li>Networking, Penetration Testing Tools (Hydra, hping3, Wireshark)</li>
-      </ul>
+      <h2 class="text-xl font-semibold mb-4 text-accent">Skills</h2>
+
+      <div class="mb-4">
+        <h3 class="font-semibold mb-1 text-green-400">Forensic Tools</h3>
+        <ul class="list-disc list-inside space-y-1 text-gray-300">
+          <li>Wireshark</li>
+          <li>Nmap</li>
+          <li>Autopsy</li>
+          <li>ProDiscover</li>
+          <li>FTK Imager</li>
+        </ul>
+      </div>
+
+      <div class="mb-4">
+        <h3 class="font-semibold mb-1 text-green-400">Penetration Testing & Networking</h3>
+        <ul class="list-disc list-inside space-y-1 text-gray-300">
+          <li>Metasploit Framework</li>
+          <li>Cisco Packet Tracer</li>
+          <li>Hydra</li>
+          <li>hping3</li>
+          <li>Snort IDS</li>
+          <li>Raspberry Pi</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="font-semibold mb-1 text-green-400">Coding Languages</h3>
+        <ul class="list-disc list-inside space-y-1 text-gray-300">
+          <li>Python</li>
+          <li>Java</li>
+          <li>PHP</li>
+          <li>R</li>
+          <li>Bash</li>
+        </ul>
+      </div>
     </section>
 
     <!-- Projects -->
     <section
-      class="bg-gray-800 shadow-lg rounded-lg p-6 mb-6"
+      class="bg-card shadow-lg rounded-lg p-6 mb-6"
       id="projects"
       data-aos="fade-up"
     >
-      <h2 class="text-xl font-semibold mb-2 text-indigo-400">Projects</h2>
+      <h2 class="text-xl font-semibold mb-2 text-accent">Projects</h2>
       <div class="mb-4">
         <p>
           <strong>Intelligent Home IDS</strong><br />
@@ -112,7 +163,7 @@
           <a
             href="https://github.com/deanharkin"
             target="_blank"
-            class="text-indigo-400 hover:underline"
+            class="text-accent hover:underline"
             >View on GitHub</a
           >
         </p>
@@ -128,33 +179,33 @@
 
     <!-- Certifications -->
     <section
-      class="bg-gray-800 shadow-lg rounded-lg p-6 mb-6"
+      class="bg-card shadow-lg rounded-lg p-6 mb-6"
       id="certifications"
       data-aos="fade-up"
     >
-      <h2 class="text-xl font-semibold mb-2 text-indigo-400">Certifications</h2>
-      <ul class="list-disc list-inside">
+      <h2 class="text-xl font-semibold mb-2 text-accent">Certifications</h2>
+      <ul class="list-disc list-inside text-gray-300">
         <li>Certified Application Security Practitioner – The SecOps Group</li>
       </ul>
     </section>
 
     <!-- CTF Competitions -->
     <section
-      class="bg-gray-800 shadow-lg rounded-lg p-6 mb-6"
+      class="bg-card shadow-lg rounded-lg p-6 mb-6"
       id="ctf"
       data-aos="fade-up"
     >
-      <h2 class="text-xl font-semibold mb-2 text-indigo-400">
+      <h2 class="text-xl font-semibold mb-2 text-accent">
         CTF Competitions
       </h2>
-      <p class="mb-2">
+      <p class="mb-2 text-gray-300">
         Participated in the Zerodays Capture The Flag (CTF) competitions in
         March 2024 and 2025. These intense cybersecurity challenges
         simulate real-world hacking and defense scenarios where participants
         solve puzzles related to exploitation, reverse engineering,
         cryptography, and web vulnerabilities.
       </p>
-      <p>
+      <p class="text-gray-300">
         Zerodays CTF tests technical skills, problem-solving under pressure,
         and collaboration with teammates. It’s a key experience for sharpening
         penetration testing and digital forensics abilities in a competitive
@@ -166,7 +217,7 @@
     <div class="text-center mt-10" data-aos="zoom-in">
       <a
         href="mailto:deanharkin03@gmail.com?subject=Contact%20from%20CV%20Website"
-        class="inline-block bg-indigo-600 text-white font-semibold px-6 py-3 rounded-md shadow hover:bg-indigo-700 transition duration-200"
+        class="inline-block btn-accent text-white font-semibold px-6 py-3 rounded-md shadow hover:bg-[#16401a] transition duration-200"
         >Get in Touch</a
       >
     </div>
